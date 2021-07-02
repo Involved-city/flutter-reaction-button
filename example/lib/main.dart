@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final radius = Radius.circular(30);
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -36,6 +37,13 @@ class _MyAppState extends State<MyApp> {
                   boxRadius: 10,
                   boxDuration: Duration(milliseconds: 500),
                   boxAlignment: AlignmentDirectional.bottomEnd,
+                  borderRadius: BorderRadius.only(
+                      topLeft: radius,
+                      topRight: radius,
+                      bottomLeft: radius,
+                      bottomRight: Radius.zero),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                 ),
               ),
               SizedBox(width: 10),

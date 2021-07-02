@@ -32,6 +32,8 @@ class ReactionsBox extends StatefulWidget {
 
   final double boxItemsSpacing;
 
+  final BorderRadiusGeometry borderRadius;
+
   const ReactionsBox({
     Key? key,
     required this.buttonOffset,
@@ -47,6 +49,7 @@ class ReactionsBox extends StatefulWidget {
     this.alignment = Alignment.center,
     this.boxPadding = const EdgeInsets.all(0),
     this.boxItemsSpacing = 0,
+    required this.borderRadius,
   }) : super(key: key);
 
   @override
@@ -58,7 +61,6 @@ class _ReactionsBoxState extends State<ReactionsBox>
   late AnimationController _scaleController;
 
   late Animation<double> _scaleAnimation;
-
   double _scale = 0;
 
   Reaction? _selectedReaction;
@@ -66,7 +68,6 @@ class _ReactionsBoxState extends State<ReactionsBox>
   @override
   void initState() {
     super.initState();
-
     _scaleController =
         AnimationController(vsync: this, duration: widget.duration);
 
@@ -111,7 +112,7 @@ class _ReactionsBoxState extends State<ReactionsBox>
                 elevation: widget.elevation,
                 clipBehavior: Clip.antiAlias,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(widget.radius),
+                  borderRadius: widget.borderRadius,
                 ),
                 child: Padding(
                   padding: widget.boxPadding,
@@ -149,7 +150,7 @@ class _ReactionsBoxState extends State<ReactionsBox>
                   : _getBottomPosition();
 
   double _getTopPosition() =>
-      widget.buttonOffset.dy - widget.buttonSize.height * 3.3;
+      widget.buttonOffset.dy - widget.buttonSize.height * 2.3;
 
   double _getBottomPosition() =>
       widget.buttonOffset.dy + widget.buttonSize.height;

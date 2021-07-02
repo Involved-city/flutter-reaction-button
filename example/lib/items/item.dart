@@ -18,7 +18,7 @@ class Item extends StatefulWidget {
 class _ItemState extends State<Item> with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
-
+  final radius = Radius.circular(30);
   List<Comment> _comments = [];
 
   _showBottomSheetCommets() {
@@ -67,6 +67,11 @@ class _ItemState extends State<Item> with AutomaticKeepAliveClientMixin {
                         reactions: widget.reactions,
                         initialReaction: Example.defaultInitialReaction,
                         selectedReaction: widget.reactions[1],
+                        borderRadius: BorderRadius.only(
+                            topLeft: radius,
+                            topRight: radius,
+                            bottomLeft: radius,
+                            bottomRight: Radius.zero),
                       ),
                     ),
                   ),
