@@ -47,24 +47,27 @@ class FlutterReactionButton extends StatefulWidget {
 
   final BorderRadiusGeometry borderRadius;
 
-  FlutterReactionButton(
-      {Key? key,
-      required this.onReactionChanged,
-      required this.reactions,
-      this.initialReaction,
-      this.highlightColor,
-      this.splashColor,
-      this.boxPosition = Position.TOP,
-      this.boxColor = Colors.white,
-      this.boxElevation = 5,
-      this.boxRadius = 50,
-      this.boxDuration = const Duration(milliseconds: 200),
-      this.boxAlignment = Alignment.center,
-      this.shouldChangeReaction = true,
-      this.boxPadding = const EdgeInsets.all(0),
-      this.boxItemsSpacing = 0,
-      this.borderRadius = const BorderRadius.all(Radius.circular(0))})
-      : super(key: key);
+  final EdgeInsets boxMargin;
+
+  FlutterReactionButton({
+    Key? key,
+    required this.onReactionChanged,
+    required this.reactions,
+    this.initialReaction,
+    this.highlightColor,
+    this.splashColor,
+    this.boxPosition = Position.TOP,
+    this.boxColor = Colors.white,
+    this.boxElevation = 5,
+    this.boxRadius = 50,
+    this.boxDuration = const Duration(milliseconds: 200),
+    this.boxAlignment = Alignment.center,
+    this.shouldChangeReaction = true,
+    this.boxPadding = const EdgeInsets.all(0),
+    this.boxItemsSpacing = 0,
+    this.borderRadius = const BorderRadius.all(Radius.circular(0)),
+    this.boxMargin = const EdgeInsets.all(0),
+  }) : super(key: key);
 
   @override
   _FlutterReactionButtonState createState() => _FlutterReactionButtonState();
@@ -122,6 +125,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> {
           boxPadding: widget.boxPadding,
           boxItemsSpacing: widget.boxItemsSpacing,
           borderRadius: widget.borderRadius,
+          boxMargin: widget.boxMargin,
         ),
       ),
     );
