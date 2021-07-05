@@ -53,7 +53,7 @@ class FlutterReactionButtonCheck extends StatefulWidget {
 
   final BorderRadiusGeometry borderRadius;
 
-  final EdgeInsets boxMargin;
+  final double positionRight;
 
   FlutterReactionButtonCheck({
     Key? key,
@@ -72,8 +72,8 @@ class FlutterReactionButtonCheck extends StatefulWidget {
     this.isChecked = false,
     this.boxPadding = const EdgeInsets.all(0),
     this.boxItemsSpacing = 0,
-    this.boxMargin = const EdgeInsets.all(0),
     required this.borderRadius,
+    this.positionRight = 0,
   }) : super(key: key);
 
   @override
@@ -165,7 +165,7 @@ class _FlutterReactionButtonCheckState
           boxPadding: widget.boxPadding,
           boxItemsSpacing: widget.boxItemsSpacing,
           borderRadius: widget.borderRadius,
-          boxMargin: widget.boxMargin,
+          positionRight: widget.positionRight,
         ),
       ),
     );

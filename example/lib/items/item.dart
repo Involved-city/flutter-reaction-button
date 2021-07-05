@@ -64,15 +64,16 @@ class _ItemState extends State<Item> with AutomaticKeepAliveClientMixin {
                         onReactionChanged: (reaction, index, isChecked) {
                           print('reaction selected index: $index');
                         },
-                        boxMargin: EdgeInsets.only(right: 0),
                         reactions: widget.reactions,
                         initialReaction: Example.defaultInitialReaction,
                         selectedReaction: widget.reactions[1],
                         borderRadius: BorderRadius.only(
-                            topLeft: radius,
-                            topRight: radius,
-                            bottomLeft: radius,
-                            bottomRight: Radius.zero),
+                          topLeft: radius,
+                          topRight: radius,
+                          bottomLeft: radius,
+                          bottomRight: Radius.zero,
+                        ),
+                        positionRight: 20,
                       ),
                     ),
                   ),

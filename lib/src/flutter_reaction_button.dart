@@ -47,7 +47,7 @@ class FlutterReactionButton extends StatefulWidget {
 
   final BorderRadiusGeometry borderRadius;
 
-  final EdgeInsets boxMargin;
+  final double positionRight;
 
   FlutterReactionButton({
     Key? key,
@@ -66,7 +66,7 @@ class FlutterReactionButton extends StatefulWidget {
     this.boxPadding = const EdgeInsets.all(0),
     this.boxItemsSpacing = 0,
     this.borderRadius = const BorderRadius.all(Radius.circular(0)),
-    this.boxMargin = const EdgeInsets.all(0),
+    this.positionRight = 0,
   }) : super(key: key);
 
   @override
@@ -125,7 +125,7 @@ class _FlutterReactionButtonState extends State<FlutterReactionButton> {
           boxPadding: widget.boxPadding,
           boxItemsSpacing: widget.boxItemsSpacing,
           borderRadius: widget.borderRadius,
-          boxMargin: widget.boxMargin,
+          positionRight: 20,
         ),
       ),
     );

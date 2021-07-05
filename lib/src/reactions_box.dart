@@ -34,7 +34,7 @@ class ReactionsBox extends StatefulWidget {
 
   final BorderRadiusGeometry borderRadius;
 
-  final EdgeInsets boxMargin;
+  final double positionRight;
 
   const ReactionsBox({
     Key? key,
@@ -52,7 +52,7 @@ class ReactionsBox extends StatefulWidget {
     this.boxPadding = const EdgeInsets.all(0),
     this.boxItemsSpacing = 0,
     required this.borderRadius,
-    this.boxMargin = const EdgeInsets.all(0),
+    this.positionRight = 0,
   }) : super(key: key);
 
   @override
@@ -108,10 +108,10 @@ class _ReactionsBoxState extends State<ReactionsBox>
           ),
           Positioned(
             top: _getPosition(context),
+            right: widget.positionRight,
             child: Transform.scale(
               scale: _scale,
               child: Card(
-                margin: widget.boxMargin,
                 color: widget.color,
                 elevation: widget.elevation,
                 clipBehavior: Clip.antiAlias,
@@ -119,7 +119,7 @@ class _ReactionsBoxState extends State<ReactionsBox>
                   borderRadius: widget.borderRadius,
                 ),
                 child: Padding(
-                  padding: widget.boxMargin,
+                  padding: widget.boxPadding,
                   child: Wrap(
                     spacing: widget.boxItemsSpacing,
                     children: widget.reactions
