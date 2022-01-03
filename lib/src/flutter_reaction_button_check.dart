@@ -77,7 +77,7 @@ class FlutterReactionButtonCheck extends StatefulWidget {
       required this.borderRadius,
       this.positionRight = 0,
       required this.bottomPositionBy,
-      required})
+      })
       : super(key: key);
 
   @override
