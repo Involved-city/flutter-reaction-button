@@ -55,26 +55,30 @@ class FlutterReactionButtonCheck extends StatefulWidget {
 
   final double positionRight;
 
-  FlutterReactionButtonCheck({
-    Key? key,
-    required this.onReactionChanged,
-    required this.reactions,
-    this.initialReaction,
-    this.selectedReaction,
-    this.highlightColor,
-    this.splashColor,
-    this.boxPosition = Position.TOP,
-    this.boxColor = Colors.white,
-    this.boxElevation = 5,
-    this.boxRadius = 50,
-    this.boxDuration = const Duration(milliseconds: 200),
-    this.boxAlignment = Alignment.center,
-    this.isChecked = false,
-    this.boxPadding = const EdgeInsets.all(0),
-    this.boxItemsSpacing = 0,
-    required this.borderRadius,
-    this.positionRight = 0,
-  }) : super(key: key);
+  final double bottomPositionBy;
+
+  FlutterReactionButtonCheck(
+      {Key? key,
+      required this.onReactionChanged,
+      required this.reactions,
+      this.initialReaction,
+      this.selectedReaction,
+      this.highlightColor,
+      this.splashColor,
+      this.boxPosition = Position.TOP,
+      this.boxColor = Colors.white,
+      this.boxElevation = 5,
+      this.boxRadius = 50,
+      this.boxDuration = const Duration(milliseconds: 200),
+      this.boxAlignment = Alignment.center,
+      this.isChecked = false,
+      this.boxPadding = const EdgeInsets.all(0),
+      this.boxItemsSpacing = 0,
+      required this.borderRadius,
+      this.positionRight = 0,
+      required this.bottomPositionBy,
+      required})
+      : super(key: key);
 
   @override
   _FlutterReactionButtonCheckState createState() =>
@@ -166,6 +170,7 @@ class _FlutterReactionButtonCheckState
           boxItemsSpacing: widget.boxItemsSpacing,
           borderRadius: widget.borderRadius,
           positionRight: widget.positionRight,
+          bottomPositionBy: widget.bottomPositionBy,
         ),
       ),
     );

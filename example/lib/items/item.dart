@@ -74,6 +74,7 @@ class _ItemState extends State<Item> with AutomaticKeepAliveClientMixin {
                           bottomRight: Radius.zero,
                         ),
                         positionRight: 20,
+                        bottomPositionBy: 1,
                       ),
                     ),
                   ),

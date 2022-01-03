@@ -45,6 +45,7 @@ class _MyAppState extends State<MyApp> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   positionRight: 20,
+                  bottomPositionBy: 1,
                 ),
               ),
               SizedBox(width: 10),

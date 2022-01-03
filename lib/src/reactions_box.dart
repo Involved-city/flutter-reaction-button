@@ -36,6 +36,9 @@ class ReactionsBox extends StatefulWidget {
 
   final double positionRight;
 
+  final double bottomPositionBy;
+
+
   const ReactionsBox({
     Key? key,
     required this.buttonOffset,
@@ -53,6 +56,7 @@ class ReactionsBox extends StatefulWidget {
     this.boxItemsSpacing = 0,
     required this.borderRadius,
     this.positionRight = 0,
+    required this.bottomPositionBy,
   }) : super(key: key);
 
   @override
@@ -154,7 +158,7 @@ class _ReactionsBoxState extends State<ReactionsBox>
                   : _getBottomPosition();
 
   double _getTopPosition() =>
-      widget.buttonOffset.dy - widget.buttonSize.height * 2.3;
+      widget.buttonOffset.dy - widget.buttonSize.height * widget.bottomPositionBy;
 
   double _getBottomPosition() =>
       widget.buttonOffset.dy + widget.buttonSize.height;
