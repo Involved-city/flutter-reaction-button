@@ -57,27 +57,29 @@ class FlutterReactionButtonCheck extends StatefulWidget {
 
   final double bottomPositionBy;
 
-  FlutterReactionButtonCheck(
-      {Key? key,
-      required this.onReactionChanged,
-      required this.reactions,
-      this.initialReaction,
-      this.selectedReaction,
-      this.highlightColor,
-      this.splashColor,
-      this.boxPosition = Position.TOP,
-      this.boxColor = Colors.white,
-      this.boxElevation = 5,
-      this.boxRadius = 50,
-      this.boxDuration = const Duration(milliseconds: 200),
-      this.boxAlignment = Alignment.center,
-      this.isChecked = false,
-      this.boxPadding = const EdgeInsets.all(0),
-      this.boxItemsSpacing = 0,
-      required this.borderRadius,
-      this.positionRight = 0,
-      required this.bottomPositionBy,
-      })
+  final bool isDisableOnClick;
+
+  FlutterReactionButtonCheck({Key? key,
+    required this.onReactionChanged,
+    required this.reactions,
+    this.initialReaction,
+    this.selectedReaction,
+    this.highlightColor,
+    this.splashColor,
+    this.boxPosition = Position.TOP,
+    this.boxColor = Colors.white,
+    this.boxElevation = 5,
+    this.boxRadius = 50,
+    this.boxDuration = const Duration(milliseconds: 200),
+    this.boxAlignment = Alignment.center,
+    this.isChecked = false,
+    this.boxPadding = const EdgeInsets.all(0),
+    this.boxItemsSpacing = 0,
+    required this.borderRadius,
+    this.positionRight = 0,
+    required this.bottomPositionBy,
+    this.isDisableOnClick = false,
+  })
       : super(key: key);
 
   @override
@@ -100,7 +102,7 @@ class _FlutterReactionButtonCheckState
   void _init() {
     _isChecked = widget.isChecked;
     _selectedReaction =
-        _isChecked ? widget.selectedReaction : widget.initialReaction;
+    _isChecked ? widget.selectedReaction : widget.initialReaction;
   }
 
   @override
@@ -116,11 +118,13 @@ class _FlutterReactionButtonCheckState
   }
 
   @override
-  Widget build(BuildContext context) => InkWell(
+  Widget build(BuildContext context) =>
+      InkWell(
         key: _buttonKey,
         highlightColor: widget.highlightColor,
         splashColor: widget.splashColor,
         onTap: () {
+          if (widget.isDisableOnClick) return;
           _onClickReactionButton();
         },
         onLongPress: () {
@@ -154,24 +158,25 @@ class _FlutterReactionButtonCheckState
       PageRouteBuilder(
         opaque: false,
         transitionDuration: const Duration(milliseconds: 200),
-        pageBuilder: (_, __, ___) => ReactionsBox(
-          buttonOffset: buttonOffset,
-          buttonSize: buttonSize,
-          reactions: widget.reactions,
-          position: widget.boxPosition,
-          color: widget.boxColor,
-          elevation: widget.boxElevation,
-          radius: widget.boxRadius,
-          duration: widget.boxDuration,
-          highlightColor: widget.highlightColor,
-          splashColor: widget.splashColor,
-          alignment: widget.boxAlignment,
-          boxPadding: widget.boxPadding,
-          boxItemsSpacing: widget.boxItemsSpacing,
-          borderRadius: widget.borderRadius,
-          positionRight: widget.positionRight,
-          bottomPositionBy: widget.bottomPositionBy,
-        ),
+        pageBuilder: (_, __, ___) =>
+            ReactionsBox(
+              buttonOffset: buttonOffset,
+              buttonSize: buttonSize,
+              reactions: widget.reactions,
+              position: widget.boxPosition,
+              color: widget.boxColor,
+              elevation: widget.boxElevation,
+              radius: widget.boxRadius,
+              duration: widget.boxDuration,
+              highlightColor: widget.highlightColor,
+              splashColor: widget.splashColor,
+              alignment: widget.boxAlignment,
+              boxPadding: widget.boxPadding,
+              boxItemsSpacing: widget.boxItemsSpacing,
+              borderRadius: widget.borderRadius,
+              positionRight: widget.positionRight,
+              bottomPositionBy: widget.bottomPositionBy,
+            ),
       ),
     );
 
@@ -181,7 +186,7 @@ class _FlutterReactionButtonCheckState
   void _updateReaction(Reaction? reaction,
       [bool isSelectedFromDialog = false]) {
     _isChecked =
-        isSelectedFromDialog ? true : reaction != widget.initialReaction;
+    isSelectedFromDialog ? true : reaction != widget.initialReaction;
     widget.onReactionChanged.call(
       reaction,
       widget.reactions.indexOf(reaction),
